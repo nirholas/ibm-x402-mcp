@@ -1,0 +1,67 @@
+{
+	"name": "@three-ws/ibm-x402-mcp",
+	"version": "1.1.0",
+	"description": "x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.",
+	"type": "module",
+	"author": "nirholas",
+	"license": "SEE LICENSE IN LICENSE",
+	"homepage": "https://three.ws",
+	"mcpName": "io.github.nirholas/ibm-x402-mcp",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nirholas/ibm-x402-mcp.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nirholas/three.ws/issues"
+	},
+	"keywords": [
+		"mcp",
+		"model-context-protocol",
+		"ibm",
+		"watsonx",
+		"ibm-granite",
+		"granite",
+		"x402",
+		"usdc",
+		"solana",
+		"pay-per-use",
+		"ai-agent",
+		"three.ws",
+		"foundation-models",
+		"embeddings",
+		"time-series"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"server.json",
+		"README.md",
+		"LICENSE"
+	],
+	"bin": {
+		"ibm-x402-mcp": "src/index.js"
+	},
+	"main": "./src/index.js",
+	"exports": {
+		".": "./src/index.js"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"scripts": {
+		"start": "node src/index.js",
+		"test": "node --test \"test/**/*.test.mjs\"",
+		"inspect": "npx -y @modelcontextprotocol/inspector node src/index.js"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.29.0",
+		"@x402/core": "^2.13.0",
+		"@x402/extensions": "^2.13.0",
+		"@x402/mcp": "^2.13.0",
+		"@x402/svm": "^2.13.0",
+		"zod": "^3.23.8",
+		"zod-to-json-schema": "3.25.2"
+	}
+}
