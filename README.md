@@ -214,3 +214,7 @@ Regional hosts: `us-south`, `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` — e
 ## License
 
 All rights reserved. See [LICENSE](LICENSE).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=nirholas/ibm-x402-mcp&type=Date)](https://www.star-history.com/#nirholas/ibm-x402-mcp&Date)
