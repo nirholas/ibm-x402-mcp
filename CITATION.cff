@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "@three-ws/ibm-x402-mcp"
+abstract: "x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required."
+version: 1.1.4
+license: Apache-2.0
+repository-code: "https://github.com/nirholas/ibm-x402-mcp"
+url: "https://three.ws"
+authors:
+  - name: three.ws
+    website: "https://three.ws"

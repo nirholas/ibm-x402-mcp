@@ -1,0 +1,20 @@
+# @three-ws/ibm-x402-mcp
+
+> x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.
+
+@three-ws/ibm-x402-mcp is a Model Context Protocol server from three.ws. Install: `npx -y @three-ws/ibm-x402-mcp`.
+
+## Docs
+
+- [README](https://github.com/nirholas/ibm-x402-mcp/blob/main/README.md): install, configuration, full reference
+- [Documentation site](https://nirholas.github.io/ibm-x402-mcp/): the README as a web page
+- [Full text for LLMs](https://nirholas.github.io/ibm-x402-mcp/llms-full.txt): README inlined
+- [AGENTS.md](https://github.com/nirholas/ibm-x402-mcp/blob/main/AGENTS.md): guidance for coding agents
+
+## Project
+
+- [Source](https://github.com/nirholas/ibm-x402-mcp)
+- [npm](https://www.npmjs.com/package/@three-ws/ibm-x402-mcp)
+- [three.ws](https://three.ws): the platform this is part of
+- [Issues](https://github.com/nirholas/ibm-x402-mcp/issues)
+- [MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.nirholas%2Fibm-x402-mcp)

@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@three-ws/ibm-x402-mcp: x402 pay-per-use MCP server for IBM Granite AI</title>
+<meta name="description" content="x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.">
+<link rel="canonical" href="https://nirholas.github.io/ibm-x402-mcp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="three.ws">
+<meta property="og:title" content="@three-ws/ibm-x402-mcp">
+<meta property="og:description" content="x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.">
+<meta property="og:url" content="https://nirholas.github.io/ibm-x402-mcp/">
+<meta property="og:image" content="https://nirholas.github.io/ibm-x402-mcp/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="@three-ws/ibm-x402-mcp">
+<meta name="twitter:description" content="x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.">
+<meta name="twitter:image" content="https://nirholas.github.io/ibm-x402-mcp/og.png">
+<meta name="keywords" content="mcp, model-context-protocol, ibm, watsonx, ibm-granite, granite, x402, usdc, solana, pay-per-use, ai-agent, three.ws, foundation-models, embeddings, time-series, mcp-server, ai-agents">
+<link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
+<link rel="icon" href="https://three.ws/three-ws-mcp-icon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"@three-ws/ibm-x402-mcp","description":"x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.","codeRepository":"https://github.com/nirholas/ibm-x402-mcp","programmingLanguage":"JavaScript","license":"https://spdx.org/licenses/Apache-2.0.html","version":"1.1.4","url":"https://nirholas.github.io/ibm-x402-mcp/","author":{"@type":"Organization","name":"three.ws","url":"https://three.ws"},"keywords":"mcp, model-context-protocol, ibm, watsonx, ibm-granite, granite, x402, usdc, solana, pay-per-use, ai-agent, three.ws, foundation-models, embeddings, time-series, mcp-server, ai-agents"}</script>
+<style>:root{--bg:#fff;--fg:#111418;--mut:#586069;--line:#e3e6ea;--acc:#2563eb;--code:#f4f6f8;--card:#fafbfc}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0d10;--fg:#e8eaed;--mut:#9aa3ad;--line:#232830;--acc:#6ea0ff;--code:#14181d;--card:#10141a}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+header.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;text-decoration:none;color:var(--fg)}
+.bar nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+.bar nav a{color:var(--mut);text-decoration:none;transition:color .15s}.bar nav a:hover{color:var(--fg)}
+.hero{max-width:1100px;margin:0 auto;padding:48px 16px 24px}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+.hero p{color:var(--mut);max-width:70ch;font-size:18px;margin:0 0 24px}
+.install{display:flex;align-items:center;gap:8px;max-width:620px;background:var(--code);border:1px solid var(--line);border-radius:10px;padding:6px 6px 6px 14px}
+.install code{flex:1;overflow-x:auto;white-space:nowrap;font:14px ui-monospace,SFMono-Regular,Menlo,monospace}
+.install button{border:0;background:var(--acc);color:#fff;border-radius:7px;padding:8px 14px;font:600 13px system-ui;cursor:pointer;transition:transform .12s,opacity .12s}
+.install button:hover{opacity:.9}.install button:active{transform:scale(.96)}
+.cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.cta a{padding:9px 16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;color:var(--fg);transition:border-color .15s,transform .15s}
+.cta a:hover{border-color:var(--acc);transform:translateY(-1px)}.cta a.pri{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.layout{max-width:1100px;margin:0 auto;padding:8px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px}
+@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}.toc{display:none}}
+.toc{position:sticky;top:76px;align-self:start;font-size:14px;border-left:1px solid var(--line);padding-left:16px}
+.toc p{margin:0 0 8px;font-weight:700;color:var(--mut);text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+.toc ul{list-style:none;margin:0;padding:0}.toc li{margin:6px 0}.toc a{color:var(--mut);text-decoration:none}.toc a:hover{color:var(--fg)}
+main{min-width:0;overflow-wrap:anywhere}main pre code{overflow-wrap:normal}main img{max-width:100%;height:auto}
+main h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+.anchor{margin-left:-1.1em;padding-right:.4em;text-decoration:none;opacity:0;color:var(--mut)}h2:hover .anchor,h3:hover .anchor,h4:hover .anchor{opacity:1}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:14px;line-height:1.5}
+code{font:0.9em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code);padding:.15em .35em;border-radius:5px}pre code{background:none;padding:0}
+table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%}th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:var(--card)}
+blockquote{margin:1em 0;padding:.2em 1em;border-left:4px solid var(--line);color:var(--mut)}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+.foot-in{max-width:1100px;margin:0 auto;padding:24px 16px;display:flex;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="brand" href="https://nirholas.github.io/ibm-x402-mcp/">@three-ws/ibm-x402-mcp</a>
+<nav aria-label="Project links"><a href="https://github.com/nirholas/ibm-x402-mcp">GitHub</a><a href="https://www.npmjs.com/package/@three-ws/ibm-x402-mcp">npm</a><a href="llms.txt">llms.txt</a><a href="https://three.ws">three.ws</a></nav>
+</div></header>
+<section class="hero">
+<h1>@three-ws/ibm-x402-mcp</h1>
+<p>x402 pay-per-use MCP server for IBM Granite AI — chat, code, embeddings, analysis, and time-series forecasting. Pay USDC on Solana per call. No IBM Cloud account required.</p>
+<div class="install" role="group" aria-label="Install command"><code>npx -y @three-ws/ibm-x402-mcp</code><button type="button" data-copy="npx -y @three-ws/ibm-x402-mcp">Copy</button></div>
+<div class="cta"><a class="pri" href="https://github.com/nirholas/ibm-x402-mcp">View on GitHub</a><a href="https://github.com/nirholas/ibm-x402-mcp/stargazers">Star the repo</a><a href="https://registry.modelcontextprotocol.io/?q=io.github.nirholas%2Fibm-x402-mcp">MCP Registry</a></div>
+</section>
+<div class="layout">
+<main id="content"><p align="center"><strong>Pay-per-use IBM Granite AI over MCP — chat, code, embeddings, analysis, and forecasting, billed in USDC on Solana. No IBM account required.</strong></p><p align="center">
+  <a href="https://www.npmjs.com/package/@three-ws/ibm-x402-mcp"><img alt="npm" src="https://img.shields.io/npm/v/@three-ws/ibm-x402-mcp?logo=npm&color=cb3837"></a>
+  <a href="https://www.npmjs.com/package/@three-ws/ibm-x402-mcp"><img alt="downloads" src="https://img.shields.io/npm/dm/@three-ws/ibm-x402-mcp?color=cb3837"></a>
+  <img alt="license" src="https://img.shields.io/npm/l/@three-ws/ibm-x402-mcp?color=3b82f6">
+  <img alt="node" src="https://img.shields.io/node/v/@three-ws/ibm-x402-mcp?color=339933&logo=node.js">
+  <a href="https://registry.modelcontextprotocol.io/?q=io.github.nirholas"><img alt="MCP Registry" src="https://img.shields.io/badge/MCP%20Registry-io.github.nirholas%2Fibm--x402--mcp-6e56cf"></a>
+  <a href="https://three.ws"><img alt="three.ws" src="https://img.shields.io/badge/built%20by-three.ws-000"></a>
+</p><p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#tools">Tools</a> ·
+  <a href="#payment-flow">Payment flow</a> ·
+  <a href="#requirements">Requirements</a> ·
+  <a href="https://three.ws">three.ws</a>
+</p><hr>
+<blockquote>
+<p>A <a href="https://modelcontextprotocol.io">Model Context Protocol</a> server that exposes IBM Granite foundation models as pay-per-use tools via the <a href="https://x402.org">x402</a> payment protocol. End users pay <strong>USDC on Solana</strong> per call — no IBM Cloud account of their own. The server operator supplies IBM credentials (<code>WATSONX_*</code>) and a receiving Solana wallet (<code>MCP_SVM_PAYMENT_ADDRESS</code>); callers supply only USDC. One free tool (<code>ibm_granite_getting_started</code>) explains prices and the flow before any payment.</p>
+</blockquote>
+<blockquote>
+<p>Built by <a href="https://three.ws">three.ws</a>. Community-built and not affiliated with IBM.</p>
+</blockquote>
+<h2 id="how-it-works"><a class="anchor" href="#how-it-works" aria-label="Link to this section">#</a>How it works</h2>
+<ol>
+<li>An MCP client (Claude Desktop, Claude Code, Cursor, or an agent) connects to this server.</li>
+<li>The client calls a tool — e.g. <code>ibm_granite_chat</code>.</li>
+<li>Without an x402 payment payload, the server returns a <code>402 PaymentRequired</code> envelope quoting the USDC price and the Solana receiving address.</li>
+<li>The client signs a Solana USDC transfer and retries with the payment in <code>_meta[&quot;x402/payment&quot;]</code>.</li>
+<li>The server verifies and settles the payment via the facilitator, calls IBM watsonx.ai, and returns the result with a settlement receipt in <code>_meta[&quot;x402/payment-response&quot;]</code>.</li>
+</ol>
+<p>x402-capable MCP clients handle this loop automatically.</p>
+<h2 id="install"><a class="anchor" href="#install" aria-label="Link to this section">#</a>Install</h2>
+<pre><code class="language-bash">npm install @three-ws/ibm-x402-mcp
+</code></pre>
+<p>Run it directly with <code>npx</code> (no install needed):</p>
+<pre><code class="language-bash">MCP_SVM_PAYMENT_ADDRESS=&lt;your-solana-wallet&gt; \
+WATSONX_API_KEY=&lt;ibm-api-key&gt; \
+WATSONX_PROJECT_ID=&lt;watsonx-project-id&gt; \
+npx @three-ws/ibm-x402-mcp
+</code></pre>
+<p>Or install globally for the <code>ibm-x402-mcp</code> binary on your <code>PATH</code>:</p>
+<pre><code class="language-bash">npm install -g @three-ws/ibm-x402-mcp
+</code></pre>
+<h2 id="quick-start"><a class="anchor" href="#quick-start" aria-label="Link to this section">#</a>Quick start</h2>
+<p>Whoever runs the process is the <strong>operator</strong>: the server fails fast at startup without a payment address and IBM credentials (<code>WATSONX_API_KEY</code>, <code>WATSONX_PROJECT_ID</code>). Callers of the running server need only USDC — no IBM account. With Claude Code, one command:</p>
+<pre><code class="language-bash">claude mcp add ibm-granite-x402 \
+  -e MCP_SVM_PAYMENT_ADDRESS=your-solana-wallet \
+  -e WATSONX_API_KEY=your-ibm-api-key \
+  -e WATSONX_PROJECT_ID=your-watsonx-project-id \
+  -- npx -y @three-ws/ibm-x402-mcp
+</code></pre>
+<p>Or wire the server into your MCP client config (<code>claude_desktop_config.json</code>, Cursor&#39;s <code>mcp.json</code>):</p>
+<pre><code class="language-json">{
+	&quot;mcpServers&quot;: {
+		&quot;ibm-x402&quot;: {
+			&quot;command&quot;: &quot;npx&quot;,
+			&quot;args&quot;: [&quot;-y&quot;, &quot;@three-ws/ibm-x402-mcp&quot;],
+			&quot;env&quot;: {
+				&quot;MCP_SVM_PAYMENT_ADDRESS&quot;: &quot;your-solana-wallet-address&quot;,
+				&quot;WATSONX_API_KEY&quot;: &quot;your-ibm-cloud-api-key&quot;,
+				&quot;WATSONX_PROJECT_ID&quot;: &quot;your-watsonx-project-id&quot;
+			}
+		}
+	}
+}
+</code></pre>
+<p>Inspect the tool surface with the MCP Inspector:</p>
+<pre><code class="language-bash">npx -y @modelcontextprotocol/inspector npx @three-ws/ibm-x402-mcp
+</code></pre>
+<h2 id="tools"><a class="anchor" href="#tools" aria-label="Link to this section">#</a>Tools</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ibm_granite_getting_started</code></td>
+<td>Overview, prices, and the x402 payment flow. No payment or IBM account required.</td>
+<td>Free</td>
+</tr>
+<tr>
+<td><code>ibm_granite_chat</code></td>
+<td>Conversational AI via IBM Granite (default <code>ibm/granite-3-8b-instruct</code>).</td>
+<td>$0.02 USDC</td>
+</tr>
+<tr>
+<td><code>ibm_granite_code</code></td>
+<td>Code generate, review, refactor, explain, test, document.</td>
+<td>$0.025 USDC</td>
+</tr>
+<tr>
+<td><code>ibm_granite_embed</code></td>
+<td>Batch text embeddings for RAG, search, and clustering (1–64 texts).</td>
+<td>$0.005 USDC</td>
+</tr>
+<tr>
+<td><code>ibm_granite_analyze</code></td>
+<td>Structured document analysis: entities, sentiment, risk flags, summary, next steps.</td>
+<td>$0.04 USDC</td>
+</tr>
+<tr>
+<td><code>ibm_granite_forecast</code></td>
+<td>Zero-shot time-series forecasting via IBM Granite TTM (Tiny Time Mixer).</td>
+<td>$0.05 USDC</td>
+</tr>
+</tbody></table>
+<p>Every tool is a read-only model-inference call — nothing on your machine or in any account is modified — and declares MCP tool annotations (<code>readOnlyHint</code>, <code>openWorldHint</code>, <code>idempotentHint</code>) so clients can reason about side effects before paying.</p>
+<h3 id="input-parameters"><a class="anchor" href="#input-parameters" aria-label="Link to this section">#</a>Input parameters</h3>
+<p><strong><code>ibm_granite_getting_started</code></strong> — <code>section</code> (optional: <code>overview</code> (default, everything) / <code>pricing</code> / <code>payment</code> / <code>tools</code> / <code>setup</code>).</p>
+<p><strong><code>ibm_granite_chat</code></strong> — <code>messages</code> (required: 1–50 <code>{ role, content }</code> pairs; roles <code>system</code>/<code>user</code>/<code>assistant</code>, content ≤ 32,000 chars), <code>model</code> (default <code>ibm/granite-3-8b-instruct</code>), <code>max_new_tokens</code> (1–4096, default 1024), <code>temperature</code> (0–2, default 0.7).</p>
+<p><strong><code>ibm_granite_code</code></strong> — <code>task</code> (required: <code>generate</code>/<code>review</code>/<code>refactor</code>/<code>explain</code>/<code>test</code>/<code>document</code>), <code>prompt</code> (required, ≤ 16,000 chars: the description for <code>generate</code>, the code for everything else), <code>language</code>, <code>context</code> (≤ 4,000 chars).</p>
+<p><strong><code>ibm_granite_embed</code></strong> — <code>inputs</code> (required: 1–64 texts, ≤8000 chars each), <code>model</code>.</p>
+<p><strong><code>ibm_granite_analyze</code></strong> — <code>document</code> (required), <code>analysis_type</code> (<code>general</code>/<code>contract</code>/<code>financial</code>/<code>technical</code>/<code>medical</code>/<code>sentiment</code>, default <code>general</code>), <code>language</code>.</p>
+<p><strong><code>ibm_granite_forecast</code></strong> — <code>timestamps</code> (required: 64–1024 ISO-8601, uniform cadence, oldest first), <code>values</code> (required: 64–1024 numbers, same length), <code>freq</code> (required: pandas cadence, e.g. <code>1h</code>, <code>1D</code>), <code>prediction_length</code> (1–96), <code>label</code>.</p>
+<h3 id="example-calls"><a class="anchor" href="#example-calls" aria-label="Link to this section">#</a>Example calls</h3>
+<pre><code class="language-jsonc">// ibm_granite_chat
+{
+  &quot;messages&quot;: [
+    { &quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are an expert data engineer.&quot; },
+    { &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Design a lakehouse schema for IoT sensor telemetry.&quot; }
+  ],
+  &quot;max_new_tokens&quot;: 1024,
+  &quot;temperature&quot;: 0.7
+}
+
+// ibm_granite_code
+{ &quot;task&quot;: &quot;review&quot;, &quot;prompt&quot;: &quot;def calculate_roi(revenue, cost): return revenue / cost&quot;, &quot;language&quot;: &quot;Python&quot; }
+
+// ibm_granite_embed
+{ &quot;inputs&quot;: [&quot;enterprise data governance&quot;, &quot;cloud-native AI pipeline&quot;, &quot;real-time analytics&quot;] }
+
+// ibm_granite_analyze
+{ &quot;document&quot;: &quot;This Software License Agreement is entered into between...&quot;, &quot;analysis_type&quot;: &quot;contract&quot; }
+
+// ibm_granite_forecast  (timestamps/values must be 64–1024 points; abbreviated here)
+{ &quot;timestamps&quot;: [&quot;2025-01-01T00:00:00Z&quot;, &quot;...&quot;, &quot;2025-03-05T00:00:00Z&quot;], &quot;values&quot;: [12500, &quot;...&quot;, 13200], &quot;freq&quot;: &quot;1D&quot;, &quot;prediction_length&quot;: 14, &quot;label&quot;: &quot;daily_revenue_usd&quot; }
+</code></pre>
+<h2 id="payment-flow"><a class="anchor" href="#payment-flow" aria-label="Link to this section">#</a>Payment flow</h2>
+<p>This server uses the <a href="https://x402.org">x402 protocol</a> for micropayments:</p>
+<ol>
+<li>Client calls a tool without payment → <code>402 PaymentRequired</code> with the USDC amount and Solana address.</li>
+<li>Client builds and signs a Solana USDC transfer transaction.</li>
+<li>Client retries with the signed tx in <code>_meta[&quot;x402/payment&quot;]</code>.</li>
+<li>Server verifies and settles via the configured facilitator (default PayAI).</li>
+<li>Server calls IBM watsonx.ai and returns the result with <code>_meta[&quot;x402/payment-response&quot;]</code> (settlement receipt).</li>
+</ol>
+<pre><code>MCP Client (Claude Desktop / Cursor / agent)
+       │  tools/call (with x402 payment in _meta)
+       ▼
+ibm-x402-mcp (stdio MCP server)
+       │  verify + settle USDC on Solana
+       ├──► x402 facilitator (default https://facilitator.payai.network)
+       │
+       │  inference call with IAM Bearer token
+       └──► IBM watsonx.ai (us-south.ml.cloud.ibm.com)
+                 └── IBM Granite 3 8B Instruct / Embedding / TTM
+</code></pre>
+<h2 id="requirements"><a class="anchor" href="#requirements" aria-label="Link to this section">#</a>Requirements</h2>
+<ul>
+<li><strong>Node.js &gt;= 20.</strong></li>
+<li>A Solana wallet address to receive USDC (<code>MCP_SVM_PAYMENT_ADDRESS</code>).</li>
+<li>IBM Cloud credentials: an API key (<a href="https://cloud.ibm.com/iam/apikeys">create one</a>) and a watsonx.ai project id (Project → Manage → General → Project ID), or a deployment space id.</li>
+</ul>
+<h3 id="environment-variables"><a class="anchor" href="#environment-variables" aria-label="Link to this section">#</a>Environment variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MCP_SVM_PAYMENT_ADDRESS</code></td>
+<td>yes</td>
+<td>— (aliases: <code>X402_PAY_TO_SOLANA</code>, <code>X402_PAY_TO</code>)</td>
+</tr>
+<tr>
+<td><code>WATSONX_API_KEY</code></td>
+<td>yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>WATSONX_PROJECT_ID</code></td>
+<td>yes (or <code>WATSONX_SPACE_ID</code>)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>WATSONX_SPACE_ID</code></td>
+<td>alternative to <code>WATSONX_PROJECT_ID</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>WATSONX_URL</code></td>
+<td>no</td>
+<td><code>https://us-south.ml.cloud.ibm.com</code></td>
+</tr>
+<tr>
+<td><code>WATSONX_MODEL_ID</code></td>
+<td>no</td>
+<td><code>ibm/granite-3-8b-instruct</code></td>
+</tr>
+<tr>
+<td><code>WATSONX_CODE_MODEL_ID</code></td>
+<td>no</td>
+<td><code>ibm/granite-3-8b-instruct</code></td>
+</tr>
+<tr>
+<td><code>WATSONX_EMBED_MODEL_ID</code></td>
+<td>no</td>
+<td><code>ibm/granite-embedding-278m-multilingual</code></td>
+</tr>
+<tr>
+<td><code>WATSONX_FORECAST_MODEL</code></td>
+<td>no</td>
+<td><code>ibm/granite-ttm-512-96-r2</code></td>
+</tr>
+<tr>
+<td><code>WATSONX_TIMEOUT_MS</code></td>
+<td>no</td>
+<td><code>90000</code></td>
+</tr>
+<tr>
+<td><code>X402_FEE_PAYER_SOLANA</code></td>
+<td>no</td>
+<td>three.ws fee payer</td>
+</tr>
+<tr>
+<td><code>X402_FACILITATOR_URL</code></td>
+<td>no</td>
+<td><code>https://facilitator.payai.network</code></td>
+</tr>
+<tr>
+<td><code>X402_FACILITATOR_TOKEN</code></td>
+<td>no</td>
+<td>— (Bearer token for a private facilitator)</td>
+</tr>
+<tr>
+<td><code>X402_ASSET_MINT_SOLANA</code></td>
+<td>no</td>
+<td>canonical Solana USDC mint</td>
+</tr>
+</tbody></table>
+<p>Regional hosts: <code>us-south</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, <code>au-syd</code>, <code>ca-tor</code> — e.g. <code>https://eu-de.ml.cloud.ibm.com</code>.</p>
+<h2 id="errors"><a class="anchor" href="#errors" aria-label="Link to this section">#</a>Errors</h2>
+<p>Every failure state is explicit — there is no silent fallback:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>What you see</th>
+<th>Recovery</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Missing env at startup</td>
+<td>The process exits with a one-line <code>configuration error: …</code> naming the missing variable (<code>MCP_SVM_PAYMENT_ADDRESS</code>, <code>WATSONX_API_KEY</code>, or <code>WATSONX_PROJECT_ID</code>/<code>WATSONX_SPACE_ID</code>).</td>
+<td>Set the variable and restart.</td>
+</tr>
+<tr>
+<td>Unpaid call to a paid tool</td>
+<td>An x402 <code>PaymentRequired</code> envelope quoting the USDC price and pay-to address — not an error; it is step 1 of the payment loop.</td>
+<td>Pay and retry (x402-capable clients do this automatically).</td>
+</tr>
+<tr>
+<td>Invalid/underpaid payment</td>
+<td>The facilitator rejects verification and a fresh <code>PaymentRequired</code> envelope is returned; no inference runs and no funds settle.</td>
+<td>Re-sign against the quoted accepts.</td>
+</tr>
+<tr>
+<td>IBM-side failure</td>
+<td>Tool result <code>{ &quot;ok&quot;: false, &quot;error&quot;: &quot;watsonx_error&quot;, &quot;message&quot;: &quot;…&quot;, &quot;status&quot;: … }</code> — IAM auth failure (bad <code>WATSONX_API_KEY</code>), model error, or a watsonx.ai timeout (<code>WATSONX_TIMEOUT_MS</code>, default 90 s).</td>
+<td>The message carries IBM&#39;s reason; check credentials, project id, and region.</td>
+</tr>
+<tr>
+<td>Unexpected server fault</td>
+<td>Tool result <code>{ &quot;ok&quot;: false, &quot;error&quot;: &quot;internal_error&quot;, &quot;message&quot;: &quot;…&quot; }</code>.</td>
+<td>Retry; file an issue if it persists.</td>
+</tr>
+<tr>
+<td>Facilitator unreachable at boot</td>
+<td>A <code>facilitator init warning: …</code> line on stderr; the server still starts and retries lazily on the first paid call.</td>
+<td>Check <code>X402_FACILITATOR_URL</code> connectivity.</td>
+</tr>
+</tbody></table>
+<p><code>ibm_granite_getting_started</code> is always free and never touches IBM or the facilitator — use it to sanity-check the server before paying.</p>
+<h2 id="related"><a class="anchor" href="#related" aria-label="Link to this section">#</a>Related</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/@three-ws/ibm-watsonx-mcp"><code>@three-ws/ibm-watsonx-mcp</code></a> — the same IBM Granite tools driven by your own IBM Cloud credentials (no x402, no per-call payment).</li>
+</ul>
+<h2 id="links"><a class="anchor" href="#links" aria-label="Link to this section">#</a>Links</h2>
+<ul>
+<li>Homepage: <a href="https://three.ws">https://three.ws</a></li>
+<li>Changelog: <a href="https://three.ws/changelog">https://three.ws/changelog</a></li>
+<li>Issues: <a href="https://github.com/nirholas/three.ws/issues">https://github.com/nirholas/three.ws/issues</a></li>
+<li>License: Apache-2.0, see <a href="https://github.com/nirholas/ibm-x402-mcp/blob/main/LICENSE">LICENSE</a></li>
+</ul>
+<hr>
+<p align="center">
+  <sub>
+    Part of the <a href="https://three.ws">three.ws</a> SDK suite — 3D AI agents, on-chain identity, and agent payments.<br/>
+    <a href="https://three.ws">Website</a> · <a href="https://three.ws/changelog">Changelog</a> · <a href="https://github.com/nirholas/three.ws">GitHub</a>
+  </sub>
+</p>
+</main>
+<nav class="toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#install">Install</a></li><li><a href="#quick-start">Quick start</a></li><li><a href="#tools">Tools</a></li><li><a href="#payment-flow">Payment flow</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#errors">Errors</a></li><li><a href="#related">Related</a></li><li><a href="#links">Links</a></li></ul></nav>
+</div>
+<footer><div class="foot-in"><span>Apache-2.0 licensed</span><a href="https://github.com/nirholas/ibm-x402-mcp/issues">Issues</a><a href="https://github.com/nirholas/ibm-x402-mcp/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/nirholas/ibm-x402-mcp/security/policy">Security</a><a href="https://three.ws">Part of three.ws</a></div></footer>
+<script>document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+var t=b.getAttribute('data-copy');var done=function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}a.remove()}})});</script>
+</body>
+</html>
