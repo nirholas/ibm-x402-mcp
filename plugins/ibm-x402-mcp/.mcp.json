@@ -7,9 +7,9 @@
         "@three-ws/ibm-x402-mcp"
       ],
       "env": {
-        "MCP_SVM_PAYMENT_ADDRESS": "${MCP_SVM_PAYMENT_ADDRESS}",
-        "WATSONX_API_KEY": "${WATSONX_API_KEY}",
-        "WATSONX_PROJECT_ID": "${WATSONX_PROJECT_ID}"
+        "MCP_SVM_PAYMENT_ADDRESS": "${MCP_SVM_PAYMENT_ADDRESS:-}",
+        "WATSONX_API_KEY": "${WATSONX_API_KEY:-}",
+        "WATSONX_PROJECT_ID": "${WATSONX_PROJECT_ID:-}"
       }
     }
   }
