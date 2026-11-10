@@ -1,0 +1,20 @@
+{
+  "name": "ibm-x402-mcp",
+  "version": "1.1.4",
+  "description": "Pay-per-call IBM Granite tools over MCP (chat, code, embeddings, analysis, forecasting), settled in USDC on Solana via x402.",
+  "author": {
+    "name": "nirholas"
+  },
+  "repository": "https://github.com/nirholas/ibm-x402-mcp",
+  "homepage": "https://nirholas.github.io/ibm-x402-mcp/",
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "ibm",
+    "granite",
+    "x402",
+    "solana",
+    "pay-per-use",
+    "three-ws"
+  ]
+}

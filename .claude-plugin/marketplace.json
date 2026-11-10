@@ -1,0 +1,24 @@
+{
+  "name": "ibm-x402-mcp",
+  "owner": {
+    "name": "nirholas"
+  },
+  "description": "Pay-per-call IBM Granite tools over MCP (chat, code, embeddings, analysis, forecasting), settled in USDC on Solana via x402.",
+  "plugins": [
+    {
+      "name": "ibm-x402-mcp",
+      "source": "./plugins/ibm-x402-mcp",
+      "description": "Pay-per-call IBM Granite tools over MCP (chat, code, embeddings, analysis, forecasting), settled in USDC on Solana via x402.",
+      "category": "development",
+      "tags": [
+        "mcp",
+        "ibm",
+        "granite",
+        "x402",
+        "solana",
+        "pay-per-use",
+        "three-ws"
+      ]
+    }
+  ]
+}
